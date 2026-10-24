@@ -17,3 +17,12 @@ emulator with Android 14 (API 34) or newer, or from a terminal:
 ```bash
 ./gradlew installDebug
 ```
+
+## Tests and screenshots
+
+`CafeFlowTest` (Robolectric) walks the whole flow: name check, quantities and
+total, receipt and the info screen. It can also save a PNG of every screen:
+
+```bash
+./gradlew testDebugUnitTest -Pcafe.screenshots=build/screens
+```
