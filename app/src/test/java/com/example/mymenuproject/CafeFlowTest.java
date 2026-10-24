@@ -39,6 +39,20 @@ import java.util.ArrayList;
 @Config(sdk = 34, qualifiers = "ar-w411dp-h891dp-port-xxhdpi")
 public class CafeFlowTest {
 
+    /** The same flow on an English device: left-to-right layout and English text. */
+    @Config(sdk = 34, qualifiers = "en-w411dp-h891dp-port-xxhdpi")
+    public static class English extends CafeFlowTest {
+    }
+
+    private static String customerName() {
+        return isArabic() ? "مشعل" : "Mishal";
+    }
+
+    private static boolean isArabic() {
+        return androidx.test.core.app.ApplicationProvider.getApplicationContext()
+                .getResources().getConfiguration().getLocales().get(0).getLanguage().equals("ar");
+    }
+
     @Test
     public void welcomeAsksForNameBeforeOpeningMenu() {
         MainActivity activity = Robolectric.buildActivity(MainActivity.class).setup().get();
@@ -50,20 +64,20 @@ public class CafeFlowTest {
         assertNotNull(nameLayout.getError());
         assertNull(shadowOf(activity).getNextStartedActivity());
 
-        ((TextView) activity.findViewById(R.id.customerNameEditText)).setText("مشعل");
+        ((TextView) activity.findViewById(R.id.customerNameEditText)).setText(customerName());
         assertNull(nameLayout.getError());
         activity.findViewById(R.id.goToMenuButton).performClick();
 
         Intent next = shadowOf(activity).getNextStartedActivity();
         assertEquals(MenuActivity.class.getName(), next.getComponent().getClassName());
-        assertEquals("مشعل", next.getStringExtra(MenuActivity.EXTRA_CUSTOMER_NAME));
+        assertEquals(customerName(), next.getStringExtra(MenuActivity.EXTRA_CUSTOMER_NAME));
     }
 
     @Test
     public void menuTotalsQuantitiesAndOpensReceipt() {
         Intent intent = new Intent()
                 .setClassName("com.example.mymenuproject", MenuActivity.class.getName())
-                .putExtra(MenuActivity.EXTRA_CUSTOMER_NAME, "مشعل");
+                .putExtra(MenuActivity.EXTRA_CUSTOMER_NAME, customerName());
         MenuActivity activity = Robolectric.buildActivity(MenuActivity.class, intent).setup().get();
 
         View confirm = activity.findViewById(R.id.confirmOrderButton);
@@ -122,7 +136,7 @@ public class CafeFlowTest {
         root.layout(0, 0, root.getWidth(), root.getHeight());
         Bitmap bitmap = Bitmap.createBitmap(root.getWidth(), root.getHeight(), Bitmap.Config.ARGB_8888);
         root.draw(new Canvas(bitmap));
-        File file = new File(dir, name + ".png");
+        File file = new File(dir, (isArabic() ? "ar-" : "en-") + name + ".png");
         file.getParentFile().mkdirs();
         try (FileOutputStream out = new FileOutputStream(file)) {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);

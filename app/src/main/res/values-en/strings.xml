@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Morning Café</string>
+
+    <string name="welcome_title">Welcome to Morning Café</string>
+    <string name="welcome_subtitle">Specialty coffee and fresh breakfast every day</string>
+    <string name="customer_name_hint">Your name</string>
+    <string name="customer_name_error">Please enter your name first</string>
+    <string name="open_menu">Browse the menu</string>
+    <string name="open_info">About the café</string>
+
+    <string name="menu_title">Menu</string>
+    <string name="menu_greeting">Hi %1$s, what are you having today?</string>
+    <string name="section_drinks">Drinks</string>
+    <string name="section_breakfast">Breakfast</string>
+    <string name="price_format">SAR %1$d</string>
+    <string name="items_count">%1$d items</string>
+    <string name="confirm_order">Place order</string>
+    <string name="empty_order">Pick at least one item</string>
+    <string name="increase">Add one</string>
+    <string name="decrease">Remove one</string>
+
+    <string name="order_title">Order received</string>
+    <string name="order_subtitle">Thanks %1$s, your order is being prepared</string>
+    <string name="order_number">Order #%1$d</string>
+    <string name="order_line">%1$d × %2$s</string>
+    <string name="order_total">Total</string>
+    <string name="order_ready_time">Ready in about 10 minutes</string>
+    <string name="new_order">New order</string>
+
+    <string name="info_title">About the café</string>
+    <string name="info_about">A small café serving specialty coffee and fresh pastries, with quiet seating for study and work.</string>
+    <string name="info_address_label">Address</string>
+    <string name="info_address">Al Rawdah, Jazan</string>
+    <string name="info_hours_label">Opening hours</string>
+    <string name="info_hours">Daily, 6 am to midnight</string>
+    <string name="info_phone_label">Phone</string>
+    <string name="info_phone">123456789</string>
+    <string name="info_team_label">Team</string>
+    <string name="info_team">Mishal Touhiri · Hatem Mashhour · Yahya Madkhali</string>
+    <string name="back">Back</string>
+
+    <string name="item_coffee">Black coffee</string>
+    <string name="item_latte">Latte</string>
+    <string name="item_espresso">Espresso</string>
+    <string name="item_iced_coffee">Iced coffee</string>
+    <string name="item_croissant">Croissant</string>
+    <string name="item_toast">Cheese toast</string>
+    <string name="desc_coffee">Carefully roasted, filter brewed</string>
+    <string name="desc_latte">Espresso with steamed milk</string>
+    <string name="desc_espresso">A rich, concentrated shot</string>
+    <string name="desc_iced_coffee">Cold coffee over ice with milk</string>
+    <string name="desc_croissant">French butter, baked every morning</string>
+    <string name="desc_toast">Toasted bread with melted cheese</string>
+</resources>

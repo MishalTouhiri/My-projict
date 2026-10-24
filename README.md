@@ -7,7 +7,8 @@ Android app for ordering from a small cafe menu.
 - Quantity steppers per item, with a live item count and total at the bottom
 - Order receipt screen with each line, the total and an order number
 - Cafe info screen: address, hours, contact and the team
-- Material 3 components, Arabic RTL layout, coffee colour palette
+- Material 3 components and a coffee colour palette
+- Arabic (right to left) by default, English on English devices
 
 ## Run
 
