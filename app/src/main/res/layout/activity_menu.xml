@@ -1,170 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/white">
+    android:background="?android:colorBackground"
+    android:orientation="vertical"
+    tools:context=".MenuActivity">
 
-    <TextView
-        android:id="@+id/menuTitleTextView"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/menu_title" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/menuItemsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/menuTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textColor="?attr/colorOnSurface"
+                android:textStyle="bold"
+                tools:text="أهلًا مشعل، وش تطلب اليوم؟" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="قائمة القهوة"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"/>
-
-    <LinearLayout
-        android:id="@+id/menuItemsLayout"
-        android:layout_width="376dp"
-        android:layout_height="436dp"
-        android:layout_below="@id/menuTitleTextView"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-
+        app:cardCornerRadius="0dp"
+        app:cardElevation="8dp"
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/ccafe" />
-
-            <CheckBox
-                android:id="@+id/coffeeCheckBox"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="قهوة"
-                android:textColor="@color/black" />
-        </LinearLayout>
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/itemsCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    tools:text="3 عنصر" />
 
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/cafee" />
+                <TextView
+                    android:id="@+id/totalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceTitleLarge"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textStyle="bold"
+                    tools:text="38 ر.س" />
+            </LinearLayout>
 
-            <CheckBox
-                android:id="@+id/latteCheckBox"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/confirmOrderButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="لاتيه"
-                android:textColor="@color/black" />
+                android:layout_height="56dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:text="@string/confirm_order"
+                app:cornerRadius="16dp" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/ocoffe" />
-
-            <CheckBox
-                android:id="@+id/espressoCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="إسبريسو"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/cafa" />
-
-            <CheckBox
-                android:id="@+id/icedCoffeeCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="قهوة مثلجة"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="وجبات الإفطار"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/shz" />
-
-            <CheckBox
-                android:id="@+id/croissantCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="كرواسون"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/toest" />
-
-            <CheckBox
-                android:id="@+id/boiledEggCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="توست"
-                android:textColor="@color/black" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/confirmOrderButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/menuItemsLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:onClick="confirmOrder"
-        android:text="تأكيد الطلب" />
-</RelativeLayout>
-
-
-
-
-
-
-
-
-
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

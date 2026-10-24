@@ -1,63 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
+    android:background="?android:colorBackground"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/welcomeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="مرحبًا في المقهى"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"/>
-
-
-    <ImageView
-        android:id="@+id/cafeImageView"
-        android:layout_width="314dp"
-        android:layout_height="193dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="73dp"
-        android:src="@drawable/cafe" />
-
-    <EditText
-        android:id="@+id/customerNameEditText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cafeImageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="106dp"
-        android:hint="اسم العميل"
-        android:inputType="text" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <Button
-        android:id="@+id/goToMenuButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/customerNameEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="106dp"
-        android:onClick="openMenuActivity"
-        android:text="الذهاب للمنيو" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
 
-    <Button
-        android:id="@+id/goToInfoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="الذهاب لمعلومات المقهى"
-        android:onClick="openInfoActivity"
-        android:layout_below="@id/goToMenuButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
-</RelativeLayout>
+            <ImageView
+                android:id="@+id/cafeImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cafe" />
+        </com.google.android.material.card.MaterialCardView>
 
+        <TextView
+            android:id="@+id/welcomeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/welcome_title"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="?attr/colorOnSurface"
+            android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/welcome_subtitle"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/customerNameLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:hint="@string/customer_name_hint"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:startIconDrawable="@drawable/ic_person">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customerNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:inputType="textPersonName"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="24dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/goToMenuButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/open_menu"
+            android:textSize="16sp"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_coffee"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/goToInfoButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/open_info"
+            android:textSize="16sp"
+            app:cornerRadius="18dp"
+            app:icon="@drawable/ic_info"
+            app:iconGravity="textStart" />
+    </LinearLayout>
+</ScrollView>

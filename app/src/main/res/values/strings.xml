@@ -1,3 +1,54 @@
 <resources>
-    <string name="app_name">My Menu project</string>
+    <string name="app_name">مقهى الصباح</string>
+
+    <string name="welcome_title">مرحبًا في مقهى الصباح</string>
+    <string name="welcome_subtitle">قهوة مختصة وفطور طازج كل يوم</string>
+    <string name="customer_name_hint">اسمك</string>
+    <string name="customer_name_error">الرجاء إدخال اسمك أولًا</string>
+    <string name="open_menu">تصفح المنيو</string>
+    <string name="open_info">عن المقهى</string>
+
+    <string name="menu_title">المنيو</string>
+    <string name="menu_greeting">أهلًا %1$s، وش تطلب اليوم؟</string>
+    <string name="section_drinks">المشروبات</string>
+    <string name="section_breakfast">الفطور</string>
+    <string name="price_format">%1$d ر.س</string>
+    <string name="items_count">%1$d عنصر</string>
+    <string name="confirm_order">تأكيد الطلب</string>
+    <string name="empty_order">اختر عنصرًا واحدًا على الأقل</string>
+    <string name="increase">زيادة</string>
+    <string name="decrease">إنقاص</string>
+
+    <string name="order_title">تم استلام طلبك</string>
+    <string name="order_subtitle">شكرًا %1$s، طلبك يتجهز الآن</string>
+    <string name="order_number">رقم الطلب #%1$d</string>
+    <string name="order_line">%1$d × %2$s</string>
+    <string name="order_total">الإجمالي</string>
+    <string name="order_ready_time">جاهز خلال ١٠ دقائق تقريبًا</string>
+    <string name="new_order">طلب جديد</string>
+
+    <string name="info_title">عن المقهى</string>
+    <string name="info_about">مقهى صغير يقدم القهوة المختصة والمعجنات الطازجة، بجلسات هادئة للدراسة والعمل.</string>
+    <string name="info_address_label">العنوان</string>
+    <string name="info_address">جازان، حي الروضة</string>
+    <string name="info_hours_label">ساعات العمل</string>
+    <string name="info_hours">يوميًا من ٦ صباحًا إلى ١٢ منتصف الليل</string>
+    <string name="info_phone_label">رقم التواصل</string>
+    <string name="info_phone">123456789</string>
+    <string name="info_team_label">فريق العمل</string>
+    <string name="info_team">مشعل طوهري · حاتم مشهور · يحيى مدخلي</string>
+    <string name="back">رجوع</string>
+
+    <string name="item_coffee">قهوة سوداء</string>
+    <string name="item_latte">لاتيه</string>
+    <string name="item_espresso">إسبريسو</string>
+    <string name="item_iced_coffee">قهوة مثلجة</string>
+    <string name="item_croissant">كرواسون</string>
+    <string name="item_toast">توست بالجبن</string>
+    <string name="desc_coffee">بن محمص بعناية، مقطرة</string>
+    <string name="desc_latte">إسبريسو مع حليب مبخّر</string>
+    <string name="desc_espresso">شوت مركّز وغني</string>
+    <string name="desc_iced_coffee">قهوة باردة مع ثلج وحليب</string>
+    <string name="desc_croissant">زبدة فرنسية، يخبز كل صباح</string>
+    <string name="desc_toast">خبز محمص مع جبنة ذائبة</string>
 </resources>

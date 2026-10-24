@@ -1,50 +1,68 @@
 package com.example.mymenuproject;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.inputmethod.EditorInfo;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.content.Intent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText customerNameEditText;
-    private Button goToMenuButton;
-    private Button goToInfoButton;
+    private TextInputLayout customerNameLayout;
+    private TextInputEditText customerNameEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        customerNameLayout = findViewById(R.id.customerNameLayout);
         customerNameEditText = findViewById(R.id.customerNameEditText);
-        goToMenuButton = findViewById(R.id.goToMenuButton);
-        goToInfoButton = findViewById(R.id.goToInfoButton);
+        MaterialButton goToMenuButton = findViewById(R.id.goToMenuButton);
+        MaterialButton goToInfoButton = findViewById(R.id.goToInfoButton);
 
-        goToMenuButton.setOnClickListener(new View.OnClickListener() {
+        goToMenuButton.setOnClickListener(v -> openMenu());
+        goToInfoButton.setOnClickListener(v ->
+                startActivity(new Intent(this, MainActivity2.class)));
+
+        customerNameEditText.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+                openMenu();
+                return true;
+            }
+            return false;
+        });
+        customerNameEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                String customerName = customerNameEditText.getText().toString();
-                if (!customerName.isEmpty()) {
-                    Intent menuIntent = new Intent(MainActivity.this, MenuActivity.class);
-                    menuIntent.putExtra("customerName", customerName);
-                    startActivity(menuIntent);
-                } else {
-                    Toast.makeText(MainActivity.this, "الرجاء إدخال اسم العميل", Toast.LENGTH_SHORT).show();
-                }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                customerNameLayout.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
             }
         });
+    }
 
-        goToInfoButton.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent infoIntent = new Intent(MainActivity.this, MainActivity2.class);
-                startActivity(infoIntent);
-            }
-        });
+    private void openMenu() {
+        Editable text = customerNameEditText.getText();
+        String customerName = text == null ? "" : text.toString().trim();
+        if (customerName.isEmpty()) {
+            customerNameLayout.setError(getString(R.string.customer_name_error));
+            return;
+        }
+        Intent menuIntent = new Intent(this, MenuActivity.class);
+        menuIntent.putExtra(MenuActivity.EXTRA_CUSTOMER_NAME, customerName);
+        startActivity(menuIntent);
     }
 }

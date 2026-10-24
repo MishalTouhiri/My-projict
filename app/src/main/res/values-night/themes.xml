@@ -1,7 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyMenuProject" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- The cafe keeps its light, cream look in dark mode as well. -->
+    <style name="Base.Theme.MyMenuProject" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/coffee</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/coffee_light</item>
+        <item name="colorOnPrimaryContainer">@color/coffee_dark</item>
+        <item name="colorSecondary">@color/caramel</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/cream</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOnSurfaceVariant">@color/ink_muted</item>
+        <item name="colorOutline">@color/coffee_light</item>
+        <item name="android:statusBarColor">@color/cream</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/cream</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>
